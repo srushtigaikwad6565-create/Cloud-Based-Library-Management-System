@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Library Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<nav class="navbar">
+    <h2>Smart Library</h2>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</nav>
+
+<div class="container">
+    <h1>Welcome, {{ current_user.username }}!</h1>
+    <p>Manage your library from one place.</p>
+
+    <div class="stats">
+        <div class="stat-card">
+            <h2>{{ total_books }}</h2>
+            <p>Total Books</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ available_books }}</h2>
+            <p>Available Books</p>
+        </div>
+
+        <div class="stat-card">
+            <h2>{{ issued_books }}</h2>
+            <p>Books Borrowed By You</p>
+        </div>
+    </div>
+
+    <div class="menu">
+        <a class="btn" href="{{ url_for('books') }}">View Books</a>
+        <a class="btn" href="{{ url_for('add_book') }}">Add Book</a>
+        <a class="btn" href="{{ url_for('my_issues') }}">My Book Records</a>
+        <a class="btn logout" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+</div>
+
+</body>
+</html>
